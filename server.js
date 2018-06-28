@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var app = express()
 var port = process.env.port || 3000;
 
-mongoose.connect('mongodb://clkeisel:Eagles52champs!@ds121331.mlab.com:21331/true_solutions_todo_list')
+mongoose.connect('mongodb://sandbox-to-do:secure-password1@ds121331.mlab.com:21331/true_solutions_todo_list')
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
