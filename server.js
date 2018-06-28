@@ -1,12 +1,14 @@
 var express = require('express')
 var mongoose = require('mongoose');
+var secrets = require('./secrets');
 var Task = require('./api/models/todoListModel');
 var bodyParser = require('body-parser');
 
 var app = express()
 var port = process.env.port || 3000;
 
-mongoose.connect('mongodb://sandbox-to-do:secure-password1@ds121331.mlab.com:21331/true_solutions_todo_list')
+var dbPath = `mongodb://sandbox-to-do:${secrets.private}@ds121331.mlab.com:21331/true_solutions_todo_list`;
+mongoose.connect(dbPath);
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
